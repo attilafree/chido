@@ -71,14 +71,7 @@
     transition: background .5s ease, color .5s ease;
   }
 
-  /* Theme transition class applied by JS during switch */
-  body.theme-transitioning * {
-    transition:
-      background-color .5s ease,
-      color .5s ease,
-      border-color .5s ease,
-      opacity .5s ease !important;
-  }
+  /* (transitions handled per-element below) */
 
   #cursor { position:fixed; width:12px; height:12px; background:var(--cursor-c); border-radius:50%; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); transition:width .2s, height .2s, background .4s; }
   #cursor-ring { position:fixed; width:40px; height:40px; border:1px solid var(--acid-dim); border-radius:50%; pointer-events:none; z-index:9998; transform:translate(-50%,-50%); transition:width .3s, height .3s, border-color .4s; }
@@ -115,8 +108,10 @@
   #theme-toggle svg { width: 16px; height: 16px; display: block; }
   .icon-moon { display: block; }
   .icon-sun  { display: none; }
-  [data-theme="day"] .icon-moon { display: none; }
-  [data-theme="day"] .icon-sun  { display: block; }
+  [data-theme="day"] .icon-moon { display: none !important; }
+  [data-theme="day"] .icon-sun  { display: block !important; }
+  /* Never let transitions affect icon visibility */
+  .icon-moon, .icon-sun { transition: none !important; }
 
   /* ── HERO ── */
   #hero { position:relative; min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; overflow:hidden; padding:2rem; }
@@ -508,13 +503,10 @@
     html.setAttribute('data-theme', theme);
     localStorage.setItem('chido-theme', theme);
     // Force Chromium to re-evaluate CSS vars inside gradient-clip elements
-    gradientEls.forEach(el => {
-      el.style.webkitTextFillColor = 'transparent';
-      el.style.backgroundImage = '';
-      requestAnimationFrame(() => {
-        el.style.backgroundImage = '';
-        el.style.webkitTextFillColor = '';
-      });
+    gradientEls.forEach(function(el) {
+      el.style.display = 'none';
+      el.offsetHeight; // trigger reflow
+      el.style.display = '';
     });
   }
 
