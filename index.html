@@ -140,9 +140,9 @@
 
   /* ── MARQUEE ── */
   .marquee-wrap { overflow:hidden; border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:1.1rem 0; background:rgba(0,0,0,.0); transition:border-color .5s; }
-  .marquee-track { display:flex; gap:3rem; animation:marquee 22s linear infinite; width:max-content; }
-  .marquee-item { font-family:'Space Mono',monospace; font-size:.62rem; letter-spacing:.3em; color:var(--fg-faint); text-transform:uppercase; white-space:nowrap; transition:color .5s; }
-  .marquee-dot { color:var(--acid-dim); margin:0 .5rem; transition:color .5s; }
+  .marquee-track { display:flex; align-items:center; gap:0; animation:marquee 22s linear infinite; width:max-content; }
+  .marquee-item { font-family:'Space Mono',monospace; font-size:.62rem; letter-spacing:.3em; color:var(--fg-faint); text-transform:uppercase; white-space:nowrap; transition:color .5s; padding:0 1.5rem; }
+  .marquee-dot { color:var(--acid-dim); transition:color .5s; font-size:.5rem; line-height:1; flex-shrink:0; }
   @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
   /* ── INFO ── */
@@ -306,18 +306,18 @@
 <!-- MARQUEE -->
 <div class="marquee-wrap">
   <div class="marquee-track">
-    <span class="marquee-item">Reserved<span class="marquee-dot">◆</span></span>
-    <span class="marquee-item">chido.hu<span class="marquee-dot">◆</span></span>
-    <span class="marquee-item">Held since 2017<span class="marquee-dot">◆</span></span>
-    <span class="marquee-item">Domain &amp; brand<span class="marquee-dot">◆</span></span>
-    <span class="marquee-item">Inquiries welcome<span class="marquee-dot">◆</span></span>
-    <span class="marquee-item">Future project<span class="marquee-dot">◆</span></span>
-    <span class="marquee-item">Reserved<span class="marquee-dot">◆</span></span>
-    <span class="marquee-item">chido.hu<span class="marquee-dot">◆</span></span>
-    <span class="marquee-item">Held since 2017<span class="marquee-dot">◆</span></span>
-    <span class="marquee-item">Domain &amp; brand<span class="marquee-dot">◆</span></span>
-    <span class="marquee-item">Inquiries welcome<span class="marquee-dot">◆</span></span>
-    <span class="marquee-item">Future project<span class="marquee-dot">◆</span></span>
+    <span class="marquee-item">Reserved</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">chido.hu</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Held since 2017</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Domain &amp; brand</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Inquiries welcome</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Future project</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Reserved</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">chido.hu</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Held since 2017</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Domain &amp; brand</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Inquiries welcome</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Future project</span><span class="marquee-dot">◆</span>
   </div>
 </div>
 
