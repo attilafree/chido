@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="night">
+<html lang="en" data-theme="day">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -77,7 +77,7 @@
   body::before { content:''; position:fixed; inset:0; z-index:1000; pointer-events:none; opacity:var(--noise-op); background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); background-size:200px; transition: opacity .5s; }
 
   /* ── NAV ── */
-  nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; justify-content:space-between; align-items:center; padding:1.5rem 3rem; }
+  nav { position:absolute; top:0; left:0; right:0; z-index:500; display:flex; justify-content:space-between; align-items:center; padding:1.5rem 3rem; }
   .logo { font-family:'Space Mono',monospace; font-size:.7rem; letter-spacing:.35em; color:var(--fg-faint); text-transform:uppercase; transition:color .5s; }
   .nav-right { display:flex; align-items:center; gap:2rem; }
   .nav-since { font-family:'Space Mono',monospace; font-size:.65rem; letter-spacing:.2em; color:var(--acid-dim); text-transform:uppercase; transition:color .5s; }
@@ -379,7 +379,7 @@
   // ── Theme toggle ──
   const html = document.documentElement;
   const toggle = document.getElementById('theme-toggle');
-  const saved = localStorage.getItem('chido-theme') || 'night';
+  const saved = localStorage.getItem('chido-theme') || 'day';
   html.setAttribute('data-theme', saved);
 
   toggle.addEventListener('click', () => {
